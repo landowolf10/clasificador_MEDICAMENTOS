@@ -9,3 +9,7 @@ G:\Projects\C#\ClasificadorSqlServer\ClasificadorSqlServer\obj\Debug\Clasificado
 G:\Projects\C#\ClasificadorSqlServer\ClasificadorSqlServer\obj\Debug\ClasificadorSqlServer.exe
 G:\Projects\C#\ClasificadorSqlServer\ClasificadorSqlServer\obj\Debug\ClasificadorSqlServer.pdb
 G:\Projects\C#\ClasificadorSqlServer\ClasificadorSqlServer\obj\Debug\ClasificadorSqlServer.frmClasificador.resources
+G:\Projects\C#\ClasificadorSqlServer\ClasificadorSqlServer\bin\Debug\ClasificadorSqlServer.exe.manifest
+G:\Projects\C#\ClasificadorSqlServer\ClasificadorSqlServer\bin\Debug\ClasificadorSqlServer.application
+G:\Projects\C#\ClasificadorSqlServer\ClasificadorSqlServer\obj\Debug\ClasificadorSqlServer.exe.manifest
+G:\Projects\C#\ClasificadorSqlServer\ClasificadorSqlServer\obj\Debug\ClasificadorSqlServer.application
