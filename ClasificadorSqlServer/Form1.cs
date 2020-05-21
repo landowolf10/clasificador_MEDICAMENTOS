@@ -143,6 +143,8 @@ namespace ClasificadorSqlServer
                 dgvMedicamentos.DataSource = dataTable;
                 dgvMedicamentos.Columns[0].Visible = false;
             }
+
+            txtBuscar.Text = "";
         }
 
         void gridFill()
