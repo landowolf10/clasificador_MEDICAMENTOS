@@ -1,0 +1,11 @@
+G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\bin\Debug\farmacia.mdf
+G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\bin\Debug\farmacia_log.ldf
+G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\bin\Debug\Farmacia Imperial.exe.config
+G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\bin\Debug\Farmacia Imperial.exe
+G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\bin\Debug\Farmacia Imperial.pdb
+G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\obj\Debug\Farmacia Imperial.csprojAssemblyReference.cache
+G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\obj\Debug\Farmacia_Imperial.Form1.resources
+G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\obj\Debug\Farmacia_Imperial.Properties.Resources.resources
+G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\obj\Debug\Farmacia Imperial.csproj.GenerateResource.cache
+G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\obj\Debug\Farmacia Imperial.exe
+G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\obj\Debug\Farmacia Imperial.pdb
