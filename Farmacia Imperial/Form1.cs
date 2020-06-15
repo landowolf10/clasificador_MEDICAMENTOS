@@ -15,6 +15,8 @@ namespace Farmacia_Imperial
     {
         string mensaje = "";
         int idMedicamento = 0;
+        string descripcionMedicamento = "", precioDist1 = "", precioDist2 = "", precioV = "";
+        string inventarioInicial = "", inventarioFinal = "";
 
         public Form1()
         {
@@ -23,9 +25,8 @@ namespace Farmacia_Imperial
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtDescripcion.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text) || string.IsNullOrEmpty(txtPrecio.Text) &&
-                string.IsNullOrWhiteSpace(txtInvInicial.Text) || string.IsNullOrEmpty(txtInvInicial.Text))
-                MessageBox.Show("Favor de capturar todos los datos.");
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+                MessageBox.Show("Favor de capturar la descripción del medicamento.");
             else
             {
                 if (btnGuardar.Text == "Actualizar")
@@ -35,8 +36,18 @@ namespace Farmacia_Imperial
                 }
                 else
                 {
+                    descripcionMedicamento = txtDescripcion.Text;
+                    precioDist1 = txtPrecioD1.Text;
+                    precioDist2 = txtPrecioD2.Text;
+                    precioV = txtPrecioVenta.Text;
+                    inventarioInicial = txtInvInicial.Text;
+                    inventarioFinal = txtInvFinal.Text;
+
+                    dbMethods metodosDB = new dbMethods();
+
                     mensaje = "insertado";
-                    insertData();
+
+                    metodosDB.insertData(descripcionMedicamento, precioDist1, precioDist2, precioV, inventarioInicial, inventarioFinal);
 
                     MessageBox.Show("Medicamento " + mensaje + " correctamente");
 
@@ -44,24 +55,6 @@ namespace Farmacia_Imperial
                     gridFill();
                 }
             }
-        }
-
-        void insertData()
-        {
-            SqlConnection conexion = Connection.getConnection();
-            SqlCommand cmd = new SqlCommand();
-
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "spAgregarMedicamento";
-            cmd.Parameters.Add("@descripcion_medicamento", SqlDbType.VarChar).Value = txtDescripcion.Text;
-            cmd.Parameters.Add("@precio_medicamento", SqlDbType.Decimal).Value = txtPrecio.Text;
-            cmd.Parameters.Add("@inv_inicial", SqlDbType.Int).Value = txtInvInicial.Text;
-
-            cmd.Connection = conexion;
-
-            cmd.ExecuteNonQuery();
-
-            conexion.Close();
         }
 
         void updateData()
@@ -73,8 +66,11 @@ namespace Farmacia_Imperial
             cmd.CommandText = "spModificarMedicamento";
             cmd.Parameters.Add("@id_medicamento", SqlDbType.Int).Value = idMedicamento;
             cmd.Parameters.Add("@descripcion_medicamento", SqlDbType.VarChar).Value = txtDescripcion.Text;
-            cmd.Parameters.Add("@precio_medicamento", SqlDbType.Decimal).Value = txtPrecio.Text;
+            cmd.Parameters.Add("@precio_d1", SqlDbType.Decimal).Value = txtPrecioD1.Text;
+            cmd.Parameters.Add("@precio_d2", SqlDbType.Decimal).Value = txtPrecioD2.Text;
+            cmd.Parameters.Add("@precio_v", SqlDbType.Decimal).Value = txtPrecioVenta.Text;
             cmd.Parameters.Add("@inv_inicial", SqlDbType.Int).Value = txtInvInicial.Text;
+            cmd.Parameters.Add("@inv_final", SqlDbType.Int).Value = txtInvFinal.Text;
 
             cmd.Connection = conexion;
 
@@ -157,8 +153,11 @@ namespace Farmacia_Imperial
         void Clear()
         {
             txtDescripcion.Text = "";
-            txtPrecio.Text = "";
+            txtPrecioD1.Text = "";
+            txtPrecioD2.Text = "";
+            txtPrecioVenta.Text = "";
             txtInvInicial.Text = "";
+            txtInvFinal.Text = "";
             btnGuardar.Text = "Guardar";
             btnEliminar.Enabled = false;
         }
@@ -169,8 +168,11 @@ namespace Farmacia_Imperial
             {
                 idMedicamento = int.Parse(dgvMedicamentos.CurrentRow.Cells[0].Value.ToString());
                 txtDescripcion.Text = dgvMedicamentos.CurrentRow.Cells[1].Value.ToString();
-                txtPrecio.Text = dgvMedicamentos.CurrentRow.Cells[2].Value.ToString();
-                txtInvInicial.Text = dgvMedicamentos.CurrentRow.Cells[3].Value.ToString();
+                txtPrecioD1.Text = dgvMedicamentos.CurrentRow.Cells[2].Value.ToString();
+                txtPrecioD2.Text = dgvMedicamentos.CurrentRow.Cells[3].Value.ToString();
+                txtPrecioVenta.Text = dgvMedicamentos.CurrentRow.Cells[4].Value.ToString();
+                txtInvInicial.Text = dgvMedicamentos.CurrentRow.Cells[5].Value.ToString();
+                txtInvFinal.Text = dgvMedicamentos.CurrentRow.Cells[6].Value.ToString();
 
                 btnGuardar.Text = "Actualizar";
                 btnEliminar.Enabled = true;
@@ -221,5 +223,15 @@ namespace Farmacia_Imperial
                 e.Handled = true;
             }
         }
+
+        /*public string descripcionValue
+        {
+            get { return txtDescripcion.Text; }
+        }
+
+        public string precioD1Value
+        {
+            get { return txtPrecioD1.Text; }
+        }*/
     }
 }

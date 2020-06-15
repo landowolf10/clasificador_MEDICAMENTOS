@@ -9,3 +9,14 @@ G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\obj\Debug\Farmacia_Imperial.P
 G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\obj\Debug\Farmacia Imperial.csproj.GenerateResource.cache
 G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\obj\Debug\Farmacia Imperial.exe
 G:\Projects\C#\Farmacia Imperial\Farmacia Imperial\obj\Debug\Farmacia Imperial.pdb
+C:\Users\Orlando\Downloads\farmacia_imperial\Farmacia Imperial\bin\Debug\farmacia.mdf
+C:\Users\Orlando\Downloads\farmacia_imperial\Farmacia Imperial\bin\Debug\farmacia_log.ldf
+C:\Users\Orlando\Downloads\farmacia_imperial\Farmacia Imperial\bin\Debug\Farmacia Imperial.exe.config
+C:\Users\Orlando\Downloads\farmacia_imperial\Farmacia Imperial\bin\Debug\Farmacia Imperial.exe
+C:\Users\Orlando\Downloads\farmacia_imperial\Farmacia Imperial\bin\Debug\Farmacia Imperial.pdb
+C:\Users\Orlando\Downloads\farmacia_imperial\Farmacia Imperial\obj\Debug\Farmacia Imperial.csprojAssemblyReference.cache
+C:\Users\Orlando\Downloads\farmacia_imperial\Farmacia Imperial\obj\Debug\Farmacia_Imperial.Form1.resources
+C:\Users\Orlando\Downloads\farmacia_imperial\Farmacia Imperial\obj\Debug\Farmacia_Imperial.Properties.Resources.resources
+C:\Users\Orlando\Downloads\farmacia_imperial\Farmacia Imperial\obj\Debug\Farmacia Imperial.csproj.GenerateResource.cache
+C:\Users\Orlando\Downloads\farmacia_imperial\Farmacia Imperial\obj\Debug\Farmacia Imperial.exe
+C:\Users\Orlando\Downloads\farmacia_imperial\Farmacia Imperial\obj\Debug\Farmacia Imperial.pdb
