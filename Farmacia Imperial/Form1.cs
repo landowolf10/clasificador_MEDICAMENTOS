@@ -15,7 +15,7 @@ namespace Farmacia_Imperial
     {
         string mensaje = "";
         int idMedicamento = 0;
-        string descripcionMedicamento = "", precioDist1 = "", precioDist2 = "", precioV = "";
+        string descripcionMedicamento = "", nombreDist1 = "", precioDist1 = "", nombreDist2 = "", precioDist2 = "", precioV = "";
         string inventarioInicial = "", inventarioFinal = "";
 
         public Form1()
@@ -37,7 +37,9 @@ namespace Farmacia_Imperial
                 else
                 {
                     descripcionMedicamento = txtDescripcion.Text;
+                    nombreDist1 = txtNombreD1.Text;
                     precioDist1 = txtPrecioD1.Text;
+                    nombreDist2 = txtNombreD2.Text;
                     precioDist2 = txtPrecioD2.Text;
                     precioV = txtPrecioVenta.Text;
                     inventarioInicial = txtInvInicial.Text;
@@ -47,13 +49,14 @@ namespace Farmacia_Imperial
 
                     mensaje = "insertado";
 
-                    metodosDB.insertData(descripcionMedicamento, precioDist1, precioDist2, precioV, inventarioInicial, inventarioFinal);
-
-                    MessageBox.Show("Medicamento " + mensaje + " correctamente");
+                    metodosDB.insertData(descripcionMedicamento, nombreDist1, precioDist1, nombreDist2, precioDist2, precioV,
+                        inventarioInicial, inventarioFinal);
 
                     Clear();
                     gridFill();
                 }
+
+                MessageBox.Show("Medicamento " + mensaje + " correctamente");
             }
         }
 
@@ -66,7 +69,9 @@ namespace Farmacia_Imperial
             cmd.CommandText = "spModificarMedicamento";
             cmd.Parameters.Add("@id_medicamento", SqlDbType.Int).Value = idMedicamento;
             cmd.Parameters.Add("@descripcion_medicamento", SqlDbType.VarChar).Value = txtDescripcion.Text;
+            cmd.Parameters.Add("@nombre_d1", SqlDbType.VarChar).Value = txtNombreD1.Text;
             cmd.Parameters.Add("@precio_d1", SqlDbType.Decimal).Value = txtPrecioD1.Text;
+            cmd.Parameters.Add("@nombre_d2", SqlDbType.VarChar).Value = txtNombreD2.Text;
             cmd.Parameters.Add("@precio_d2", SqlDbType.Decimal).Value = txtPrecioD2.Text;
             cmd.Parameters.Add("@precio_v", SqlDbType.Decimal).Value = txtPrecioVenta.Text;
             cmd.Parameters.Add("@inv_inicial", SqlDbType.Int).Value = txtInvInicial.Text;
@@ -153,7 +158,9 @@ namespace Farmacia_Imperial
         void Clear()
         {
             txtDescripcion.Text = "";
+            txtNombreD1.Text = "";
             txtPrecioD1.Text = "";
+            txtNombreD2.Text = "";
             txtPrecioD2.Text = "";
             txtPrecioVenta.Text = "";
             txtInvInicial.Text = "";
@@ -168,11 +175,13 @@ namespace Farmacia_Imperial
             {
                 idMedicamento = int.Parse(dgvMedicamentos.CurrentRow.Cells[0].Value.ToString());
                 txtDescripcion.Text = dgvMedicamentos.CurrentRow.Cells[1].Value.ToString();
-                txtPrecioD1.Text = dgvMedicamentos.CurrentRow.Cells[2].Value.ToString();
-                txtPrecioD2.Text = dgvMedicamentos.CurrentRow.Cells[3].Value.ToString();
-                txtPrecioVenta.Text = dgvMedicamentos.CurrentRow.Cells[4].Value.ToString();
-                txtInvInicial.Text = dgvMedicamentos.CurrentRow.Cells[5].Value.ToString();
-                txtInvFinal.Text = dgvMedicamentos.CurrentRow.Cells[6].Value.ToString();
+                txtNombreD1.Text = dgvMedicamentos.CurrentRow.Cells[2].Value.ToString();
+                txtPrecioD1.Text = dgvMedicamentos.CurrentRow.Cells[3].Value.ToString();
+                txtNombreD2.Text = dgvMedicamentos.CurrentRow.Cells[4].Value.ToString();
+                txtPrecioD2.Text = dgvMedicamentos.CurrentRow.Cells[5].Value.ToString();
+                txtPrecioVenta.Text = dgvMedicamentos.CurrentRow.Cells[6].Value.ToString();
+                txtInvInicial.Text = dgvMedicamentos.CurrentRow.Cells[7].Value.ToString();
+                txtInvFinal.Text = dgvMedicamentos.CurrentRow.Cells[8].Value.ToString();
 
                 btnGuardar.Text = "Actualizar";
                 btnEliminar.Enabled = true;
@@ -185,6 +194,34 @@ namespace Farmacia_Imperial
 
             Clear();
             gridFill();
+        }
+
+        private void txtPrecioD1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            //Solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrecioD2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            //Solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
@@ -217,6 +254,14 @@ namespace Farmacia_Imperial
         }
 
         private void txtInvInicial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtInvFinal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
