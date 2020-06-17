@@ -51,6 +51,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtNombreD2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnMostrarTodo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -183,7 +184,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(1103, 38);
+            this.btnBuscar.Location = new System.Drawing.Point(1092, 38);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(140, 34);
@@ -290,12 +291,25 @@
             this.label9.TabIndex = 24;
             this.label9.Text = "Nombre distribuidor 2:";
             // 
+            // btnMostrarTodo
+            // 
+            this.btnMostrarTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarTodo.Location = new System.Drawing.Point(1240, 38);
+            this.btnMostrarTodo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMostrarTodo.Name = "btnMostrarTodo";
+            this.btnMostrarTodo.Size = new System.Drawing.Size(140, 34);
+            this.btnMostrarTodo.TabIndex = 26;
+            this.btnMostrarTodo.Text = "Mostrar todo";
+            this.btnMostrarTodo.UseVisualStyleBackColor = true;
+            this.btnMostrarTodo.Click += new System.EventHandler(this.btnMostrarTodo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumTurquoise;
             this.ClientSize = new System.Drawing.Size(1400, 651);
+            this.Controls.Add(this.btnMostrarTodo);
             this.Controls.Add(this.txtNombreD2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtNombreD1);
@@ -354,6 +368,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtNombreD2;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnMostrarTodo;
     }
 }
 

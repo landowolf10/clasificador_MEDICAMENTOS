@@ -228,6 +228,11 @@ namespace Farmacia_Imperial
             }
         }
 
+        private void btnMostrarTodo_Click(object sender, EventArgs e)
+        {
+            gridFill();
+        }
+
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
