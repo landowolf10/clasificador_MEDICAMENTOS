@@ -29,34 +29,38 @@ namespace Farmacia_Imperial
                 MessageBox.Show("Favor de capturar la descripción del medicamento.");
             else
             {
-                if (btnGuardar.Text == "Actualizar")
-                {
-                    mensaje = "actualizado";
-                    updateData();
-                }
+                if (txtPrecioD1.Text == "." || txtPrecioD1.Text == "." || txtPrecioVenta.Text == ".")
+                    MessageBox.Show("Favor de ingresar un precio correcto");
                 else
                 {
-                    descripcionMedicamento = txtDescripcion.Text;
-                    nombreDist1 = txtNombreD1.Text;
-                    precioDist1 = txtPrecioD1.Text;
-                    nombreDist2 = txtNombreD2.Text;
-                    precioDist2 = txtPrecioD2.Text;
-                    precioV = txtPrecioVenta.Text;
-                    inventarioInicial = txtInvInicial.Text;
-                    inventarioFinal = txtInvFinal.Text;
+                    if (btnGuardar.Text == "Actualizar")
+                    {
+                        mensaje = "actualizado";
+                        updateData();
+                    }
+                    else
+                    {
+                        descripcionMedicamento = txtDescripcion.Text;
+                        nombreDist1 = txtNombreD1.Text;
+                        precioDist1 = txtPrecioD1.Text;
+                        nombreDist2 = txtNombreD2.Text;
+                        precioDist2 = txtPrecioD2.Text;
+                        precioV = txtPrecioVenta.Text;
+                        inventarioInicial = txtInvInicial.Text;
+                        inventarioFinal = txtInvFinal.Text;
 
-                    dbMethods metodosDB = new dbMethods();
+                        dbMethods metodosDB = new dbMethods();
 
-                    mensaje = "insertado";
+                        mensaje = "insertado";
 
-                    metodosDB.insertData(descripcionMedicamento, nombreDist1, precioDist1, nombreDist2, precioDist2, precioV,
-                        inventarioInicial, inventarioFinal);
+                        metodosDB.insertData(descripcionMedicamento, nombreDist1, precioDist1, nombreDist2, precioDist2, precioV, inventarioInicial, inventarioFinal);
 
-                    Clear();
-                    gridFill();
+                        Clear();
+                        gridFill();
+                    }
+
+                    MessageBox.Show("Medicamento " + mensaje + " correctamente");
                 }
-
-                MessageBox.Show("Medicamento " + mensaje + " correctamente");
             }
         }
 
@@ -268,15 +272,5 @@ namespace Farmacia_Imperial
                 e.Handled = true;
             }
         }
-
-        /*public string descripcionValue
-        {
-            get { return txtDescripcion.Text; }
-        }
-
-        public string precioD1Value
-        {
-            get { return txtPrecioD1.Text; }
-        }*/
     }
 }
